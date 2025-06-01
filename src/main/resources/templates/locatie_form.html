@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nieuwe locatie</title>
+</head>
+<body>
+<h1>Voeg een nieuwe locatie toe</h1>
+<form th:action="@{/locatie/new}" th:object="${locatie}" method="post">
+    <label>Naam: <input type="text" th:field="*{naam}" /></label><br/>
+    <label>Adres: <input type="text" th:field="*{adres}" /></label><br/>
+    <label>Capaciteit: <input type="number" th:field="*{capaciteit}" /></label><br/>
+    <button type="submit">Opslaan</button>
+</form>
+</body>
+</html>
+

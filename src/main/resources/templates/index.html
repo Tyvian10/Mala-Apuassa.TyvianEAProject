@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Apple Juice Foundation - Evenementen</title>
+</head>
+<body>
+<header>
+    <h1><a th:href="@{/}">Apple Juice Foundation</a></h1>
+    <nav>
+        <a th:href="@{/new}">Nieuw evenement</a> |
+        <a th:href="@{/about}">Over ons</a>
+    </nav>
+</header>
+
+<h2>Laatst toegevoegde evenementen</h2>
+<table border="1">
+    <tr>
+        <th>Titel</th>
+        <th>Organisatie</th>
+        <th>Details</th>
+    </tr>
+    <tr th:each="e : ${evenementen}">
+        <td th:text="${e.titel}">Titel</td>
+        <td th:text="${e.organisatie}">Organisatie</td>
+        <td><a th:href="@{|/details/${e.id}|}">Bekijk</a></td>
+    </tr>
+</table>
+
+<footer>
+    <p>&copy; 2025 Apple Juice Foundation</p>
+</footer>
+</body>
+</html>

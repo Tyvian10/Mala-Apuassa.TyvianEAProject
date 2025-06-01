@@ -1,0 +1,39 @@
+<form th:action="@{/new}" th:object="${evenement}" method="post">
+
+    <label>Titel:
+        <input type="text" th:field="*{titel}" />
+    </label><br/>
+    <p th:if="${#fields.hasErrors('titel')}" th:errors="*{titel}">Fout bij titel</p>
+
+    <label>Omschrijving:
+        <input type="text" th:field="*{omschrijving}" />
+    </label><br/>
+    <p th:if="${#fields.hasErrors('omschrijving')}" th:errors="*{omschrijving}">Fout bij omschrijving</p>
+
+    <label>Tijdstip:
+        <input type="datetime-local" th:field="*{tijdstip}" />
+    </label><br/>
+
+    <label>Organisatie:
+        <input type="text" th:field="*{organisatie}" />
+    </label><br/>
+    <p th:if="${#fields.hasErrors('organisatie')}" th:errors="*{organisatie}">Fout bij organisatie</p>
+
+    <label>Email contactpersoon:
+        <input type="email" th:field="*{emailContactpersoon}" />
+    </label><br/>
+    <p th:if="${#fields.hasErrors('emailContactpersoon')}" th:errors="*{emailContactpersoon}">Fout bij e-mail</p>
+
+    <label>Locatie:
+        <select th:field="*{locatie}">
+            <option value="" disabled selected>Kies een locatie</option>
+            <option th:each="loc : ${locaties}"
+                    th:value="${loc.id}"
+                    th:text="${loc.naam}">
+            </option>
+        </select>
+    </label><br/>
+
+
+    <button type="submit">Toevoegen</button>
+</form>
